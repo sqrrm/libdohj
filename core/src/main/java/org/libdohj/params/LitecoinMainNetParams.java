@@ -17,21 +17,16 @@
 
 package org.libdohj.params;
 
-import org.bitcoinj.core.Utils;
-import org.spongycastle.util.encoders.Hex;
-
-import static com.google.common.base.Preconditions.checkState;
-import java.io.ByteArrayOutputStream;
-import org.bitcoinj.core.AltcoinBlock;
-import org.bitcoinj.core.Block;
-import static org.bitcoinj.core.Coin.COIN;
-import org.bitcoinj.core.NetworkParameters;
-import org.bitcoinj.core.Transaction;
-import org.bitcoinj.core.TransactionInput;
-import org.bitcoinj.core.TransactionOutput;
+import org.bitcoinj.core.*;
 import org.bitcoinj.params.MainNetParams;
 import org.bitcoinj.script.Script;
 import org.bitcoinj.script.ScriptOpCodes;
+import org.spongycastle.util.encoders.Hex;
+
+import java.io.ByteArrayOutputStream;
+
+import static com.google.common.base.Preconditions.checkState;
+import static org.bitcoinj.core.Coin.COIN;
 
 /**
  * Parameters for the Litecoin main production network on which people trade
@@ -39,7 +34,17 @@ import org.bitcoinj.script.ScriptOpCodes;
  */
 public class LitecoinMainNetParams extends AbstractLitecoinParams {
     public static final int MAINNET_MAJORITY_WINDOW = MainNetParams.MAINNET_MAJORITY_WINDOW;
-    public static final int MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED = MainNetParams.MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED;
+
+    // TODO just temporary changed.  
+    // we get an error at 2 blocks where version # is 2 and marked as outdated. 
+    // MainNetParams.MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED is 950
+    // block a8e1d36bc03bf95c98e369a8f28203afacef9ac97a54e782919b0884fecbcc5d
+    // Error msg: Block version #2 is outdated.
+    // https://chainz.cryptoid.info/ltc/block.dws?a8e1d36bc03bf95c98e369a8f28203afacef9ac97a54e782919b0884fecbcc5d.htm
+    
+    //public static final int MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED = MainNetParams.MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED;
+    public static final int MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED = 992;
+    
     public static final int MAINNET_MAJORITY_ENFORCE_BLOCK_UPGRADE = MainNetParams.MAINNET_MAJORITY_ENFORCE_BLOCK_UPGRADE;
 
     public LitecoinMainNetParams() {
