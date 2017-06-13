@@ -41,10 +41,10 @@ public class LitecoinMainNetParams extends AbstractLitecoinParams {
     // block a8e1d36bc03bf95c98e369a8f28203afacef9ac97a54e782919b0884fecbcc5d
     // Error msg: Block version #2 is outdated.
     // https://chainz.cryptoid.info/ltc/block.dws?a8e1d36bc03bf95c98e369a8f28203afacef9ac97a54e782919b0884fecbcc5d.htm
-    
+
     //public static final int MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED = MainNetParams.MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED;
     public static final int MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED = 992;
-    
+
     public static final int MAINNET_MAJORITY_ENFORCE_BLOCK_UPGRADE = MainNetParams.MAINNET_MAJORITY_ENFORCE_BLOCK_UPGRADE;
 
     public LitecoinMainNetParams() {
@@ -57,7 +57,7 @@ public class LitecoinMainNetParams extends AbstractLitecoinParams {
         port = 9333;
         addressHeader = 48;
         p2shHeader = 5;
-        acceptableAddressCodes = new int[] { addressHeader, p2shHeader };
+        acceptableAddressCodes = new int[]{addressHeader, p2shHeader};
         dumpedPrivateKeyHeader = 176;
 
         this.genesisBlock = createGenesis(this);
@@ -72,13 +72,15 @@ public class LitecoinMainNetParams extends AbstractLitecoinParams {
         majorityRejectBlockOutdated = MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED;
         majorityWindow = MAINNET_MAJORITY_WINDOW;
 
-        dnsSeeds = new String[] {
-            "dnsseed.litecointools.com",
-            "dnsseed.litecoinpool.org",
-            "dnsseed.ltc.xurious.com",
-            "dnsseed.koin-project.com",
-            "dnsseed.weminemnc.com"
+        // taken from https://github.com/litecoin-project/litecoin/blob/master/src/chainparams.cpp
+        dnsSeeds = new String[]{
+                "seed-a.litecoin.loshan.co.uk",
+                "dnsseed.thrasher.io",
+                "dnsseed.litecointools.com",
+                "dnsseed.litecoinpool.org",
+                "dnsseed.koin-project.com"
         };
+
         bip32HeaderPub = 0x0488B21E;
         bip32HeaderPriv = 0x0488ADE4;
     }
@@ -107,6 +109,7 @@ public class LitecoinMainNetParams extends AbstractLitecoinParams {
     }
 
     private static LitecoinMainNetParams instance;
+
     public static synchronized LitecoinMainNetParams get() {
         if (instance == null) {
             instance = new LitecoinMainNetParams();

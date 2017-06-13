@@ -17,20 +17,15 @@
 
 package org.libdohj.params;
 
-import org.bitcoinj.core.Utils;
-import org.spongycastle.util.encoders.Hex;
-
-import static com.google.common.base.Preconditions.checkState;
-import java.io.ByteArrayOutputStream;
-import org.bitcoinj.core.AltcoinBlock;
-import org.bitcoinj.core.Block;
-import static org.bitcoinj.core.Coin.COIN;
-import org.bitcoinj.core.NetworkParameters;
-import org.bitcoinj.core.Transaction;
-import org.bitcoinj.core.TransactionInput;
-import org.bitcoinj.core.TransactionOutput;
+import org.bitcoinj.core.*;
 import org.bitcoinj.script.Script;
 import org.bitcoinj.script.ScriptOpCodes;
+import org.spongycastle.util.encoders.Hex;
+
+import java.io.ByteArrayOutputStream;
+
+import static com.google.common.base.Preconditions.checkState;
+import static org.bitcoinj.core.Coin.COIN;
 
 /**
  * Parameters for the testnet, a separate public instance of Litecoin that has
@@ -67,10 +62,11 @@ public class LitecoinTestNet3Params extends AbstractLitecoinParams {
         majorityRejectBlockOutdated = TESTNET_MAJORITY_REJECT_BLOCK_OUTDATED;
         majorityWindow = TESTNET_MAJORITY_WINDOW;
 
+        // taken from https://github.com/litecoin-project/litecoin/blob/master/src/chainparams.cpp
         dnsSeeds = new String[] {
             "testnet-seed.litecointools.com",
-            "testnet-seed.ltc.xurious.com",
-            "dnsseed.wemine-testnet.com"
+            "seed-b.litecoin.loshan.co.uk",
+            "dnsseed-testnet.thrasher.io"
         };
 
         bip32HeaderPub = 0x043587CF;
