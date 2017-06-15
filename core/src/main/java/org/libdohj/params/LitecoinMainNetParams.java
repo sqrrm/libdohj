@@ -35,16 +35,14 @@ import static org.bitcoinj.core.Coin.COIN;
 public class LitecoinMainNetParams extends AbstractLitecoinParams {
     public static final int MAINNET_MAJORITY_WINDOW = MainNetParams.MAINNET_MAJORITY_WINDOW;
 
-    // TODO just temporary changed.  
-    // we get an error at 2 blocks where version # is 2 and marked as outdated. 
+    // TODO just temporary changed.
+    // we get an error at 2 blocks where version # is 2 and marked as outdated.
     // MainNetParams.MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED is 950
     // block a8e1d36bc03bf95c98e369a8f28203afacef9ac97a54e782919b0884fecbcc5d
     // Error msg: Block version #2 is outdated.
     // https://chainz.cryptoid.info/ltc/block.dws?a8e1d36bc03bf95c98e369a8f28203afacef9ac97a54e782919b0884fecbcc5d.htm
 
-    //public static final int MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED = MainNetParams.MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED;
-    public static final int MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED = 992;
-
+    public static final int MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED = MainNetParams.MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED;
     public static final int MAINNET_MAJORITY_ENFORCE_BLOCK_UPGRADE = MainNetParams.MAINNET_MAJORITY_ENFORCE_BLOCK_UPGRADE;
 
     public LitecoinMainNetParams() {
