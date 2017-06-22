@@ -24,7 +24,9 @@ import org.libdohj.core.AltcoinNetworkParameters;
 import org.libdohj.core.AltcoinSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.math.BigInteger;
+
 import static org.bitcoinj.core.Coin.COIN;
 
 /**
@@ -32,11 +34,11 @@ import static org.bitcoinj.core.Coin.COIN;
  */
 public abstract class AbstractLitecoinParams extends NetworkParameters implements AltcoinNetworkParameters {
     /** Standard format for the LITE denomination. */
-    public static final MonetaryFormat LITE;
+    public static final MonetaryFormat LTC;
     /** Standard format for the mLITE denomination. */
-    public static final MonetaryFormat MLITE;
+    public static final MonetaryFormat MLTC;
     /** Standard format for the Liteoshi denomination. */
-    public static final MonetaryFormat LITEOSHI;
+    public static final MonetaryFormat LITOSHI;
 
     public static final int LITE_TARGET_TIMESPAN = (int) (3.5 * 24 * 60 * 60); // 3.5 days
     public static final int LITE_TARGET_SPACING = (int) (2.5 * 60); // 2.5 minutes
@@ -52,20 +54,22 @@ public abstract class AbstractLitecoinParams extends NetworkParameters implement
      */
     public static final Coin MAX_LITECOIN_MONEY = COIN.multiply(MAX_LITECOINS);
 
+    // updated codes from: https://en.wikipedia.org/wiki/Litecoin
+    
     /** Currency code for base 1 Litecoin. */
-    public static final String CODE_LITE = "LITE";
+    public static final String CODE_LTC = "LTC";
     /** Currency code for base 1/1,000 Litecoin. */
-    public static final String CODE_MLITE = "mLITE";
+    public static final String CODE_MLTC = "mLTC";
     /** Currency code for base 1/100,000,000 Litecoin. */
-    public static final String CODE_LITEOSHI = "Liteoshi";
+    public static final String CODE_LITOSHI = "Litoshi";
 
     static {
-        LITE = MonetaryFormat.BTC.noCode()
-            .code(0, CODE_LITE)
-            .code(3, CODE_MLITE)
-            .code(7, CODE_LITEOSHI);
-        MLITE = LITE.shift(3).minDecimals(2).optionalDecimals(2);
-        LITEOSHI = LITE.shift(7).minDecimals(0).optionalDecimals(2);
+        LTC = MonetaryFormat.BTC.noCode()
+                .code(0, CODE_LTC)
+                .code(3, CODE_MLTC)
+                .code(7, CODE_LITOSHI);
+        MLTC = LTC.shift(3).minDecimals(2).optionalDecimals(2);
+        LITOSHI = LTC.shift(7).minDecimals(0).optionalDecimals(2);
     }
 
     /** The string returned by getId() for the main, production network where people trade things. */
@@ -107,7 +111,7 @@ public abstract class AbstractLitecoinParams extends NetworkParameters implement
     }
 
     public MonetaryFormat getMonetaryFormat() {
-        return LITE;
+        return LTC;
     }
 
     @Override
