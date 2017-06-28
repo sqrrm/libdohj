@@ -62,6 +62,7 @@ public class AltcoinBlock extends org.bitcoinj.core.Block {
     private boolean auxpowChain = false;
 
     private ScryptHash scryptHash;
+    private Sha256Hash altcoinHash = null;
 
     /** Special case constructor, used for the genesis node, cloneAsHeader and unit tests.
      * @param params NetworkParameters object.
@@ -301,5 +302,24 @@ public class AltcoinBlock extends org.bitcoinj.core.Block {
     @Override
     public void verifyHeader() throws VerificationException {
         super.verifyHeader();
+    }
+
+    /**
+     * This allows a coin to return a different hash than the default used by bitcoinj (SHA256D).
+     * @return The hash of the block.
+     */
+    @Override
+    public Sha256Hash getHash() {
+        if (params instanceof AltcoinNetworkParameters) {
+            AltcoinNetworkParameters altParams = (AltcoinNetworkParameters)params;
+
+            if(!altParams.isBlockHashSHA256D()) {
+                if (altcoinHash == null)
+                    altcoinHash = altParams.calculateBlockHash(bitcoinSerialize(), 0, Block.HEADER_SIZE);
+                return altcoinHash;
+            }
+        }
+
+        return super.getHash();
     }
 }

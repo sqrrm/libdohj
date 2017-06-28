@@ -31,6 +31,34 @@ public interface AltcoinNetworkParameters {
      */
     Sha256Hash getBlockDifficultyHash(Block block);
 
+    /**
+     * Most coins use SHA256D for block hashes,
+     * but some do not.  If a coin uses SHA256D, then isBlockHashSHA256D should
+     * return true and calculateBlockHash should return null;
+     */
+
+    /**
+     *
+     * @return true if the coin uses SHA256D like bitcoin, false if it uses a different hash function
+     */
+    boolean isBlockHashSHA256D();
+
+    /**
+     *
+     * @param header The block header
+     * @return The hash of the block header.  null if using the standard bitcoin hash function (SHA256D)
+     */
+    Sha256Hash calculateBlockHash(byte[] header);
+
+    /**
+     *
+     * @param input The byte array containing the block header
+     * @param offset The offset to the starting position of the block header
+     * @param length The length of the block header which should be 80 bytes.
+     * @return The hash of the block header.  null if using the standard bitcoin hash function (SHA256D)
+     */
+    Sha256Hash calculateBlockHash(byte[] input, int offset, int length);
+
     public boolean isTestNet();
 
     /**
