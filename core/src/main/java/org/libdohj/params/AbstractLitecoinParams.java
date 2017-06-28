@@ -309,4 +309,19 @@ public abstract class AbstractLitecoinParams extends NetworkParameters implement
     }
 
     private static class CheckpointEncounteredException extends Exception {  }
+
+    @Override
+    public boolean isBlockHashSHA256D() { return true; }
+
+    @Override
+    public Sha256Hash calculateBlockHash(byte[] header)
+    {
+        return null;
+    }
+    @Override
+    public Sha256Hash calculateBlockHash(byte[] header, int offset, int length)
+    {
+        return null;
+    }
+
 }
