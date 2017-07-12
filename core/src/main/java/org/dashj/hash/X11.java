@@ -11,9 +11,6 @@ import java.util.Arrays;
  */
 public class X11 {
 
-    private static final Logger log = LoggerFactory.getLogger(X11.class);
-    private static boolean native_library_loaded = false;
-
     static BLAKE512 blake512 = new BLAKE512();
     static BMW512 bmw512= new BMW512();
     static Groestl512 groestl512 = new Groestl512();
@@ -26,41 +23,13 @@ public class X11 {
     static SIMD512 simd512 = new SIMD512();
     static ECHO512 echo512 = new ECHO512();
 
-    static {
-
-        try {
-            log.info("Loading x11 native library...");
-            System.loadLibrary("x11");
-            native_library_loaded = true;
-            log.info("Loaded x11 successfully.");
-        }
-        catch(UnsatisfiedLinkError x)
-        {
-            native_library_loaded = false;
-            log.info("Loading x11 failed: " + x.getMessage());
-        }
-        catch(Exception e)
-        {
-            native_library_loaded = false;
-            log.info("Loading x11 failed: " + e.getMessage());
-        }
-    }
-
     public static byte[] digest(byte[] input, int offset, int length)
     {
-        try {
-            return native_library_loaded ? x11_native(input, offset, length) : x11(input, offset, length);
-        } catch (Exception e) {
-            return null;
-        }
+         return x11(input, offset, length);
     }
 
     public static byte[] digest(byte[] input) {
-        try {
-            return native_library_loaded ? x11_native(input, 0, input.length) : x11(input, 0, input.length);
-        } catch (Exception e) {
-            return null;
-        }
+         return x11(input, 0, input.length);
     }
 
     static native byte [] x11_native(byte [] input, int offset, int length);
