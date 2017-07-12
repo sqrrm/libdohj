@@ -288,18 +288,4 @@ public abstract class AbstractNamecoinParams extends NetworkParameters implement
         private CheckpointEncounteredException() {
         }
     }
-
-    @Override
-    public boolean isBlockHashSHA256D() { return true; }
-
-    @Override
-    public Sha256Hash calculateBlockHash(byte[] header)
-    {
-        return null;
-    }
-    @Override
-    public Sha256Hash calculateBlockHash(byte[] header, int offset, int length)
-    {
-        return null;
-    }
 }
