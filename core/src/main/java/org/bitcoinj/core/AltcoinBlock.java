@@ -322,4 +322,8 @@ public class AltcoinBlock extends org.bitcoinj.core.Block {
 
         return super.getHash();
     }
+
+    public void resetAltcoinHash() {
+        altcoinHash = null;
+    }
 }
