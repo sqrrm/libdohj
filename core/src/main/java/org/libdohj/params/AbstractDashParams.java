@@ -614,12 +614,6 @@ public abstract class AbstractDashParams extends NetworkParameters implements Al
     public boolean isBlockHashSHA256D() { return false; }
 
     @Override
-    public Sha256Hash calculateBlockHash(byte[] header)
-    {
-        return Sha256Hash.wrapReversed(X11.digest(header));
-    }
-
-    @Override
     public Sha256Hash calculateBlockHash(byte[] payload, int offset, int length)
     {
         return Sha256Hash.wrapReversed(X11.digest(payload, offset, length));
