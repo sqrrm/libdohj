@@ -1,9 +1,13 @@
+# configuration for https://travis-ci.org/dogecoin/libdohj
+sudo: false
 language: java
 jdk: oraclejdk8
-
-notifications:
-  slack:
-    rooms:
-     - secure: ecJcGYuB3xCTf7SDeOggiTDaju5X7HO9y18GJW5zwXp/1/pulzxArXh62ofIQmtvEeU/q14uX1+L1a9ysYxtJampEif/Gp+naUJpl11DvRYDJmVY95W4AeEhw2pGmJFOpAX9XKlQmQzb2GuNEW2M86NDTQNqZp7amvFpARy8PQCDBh/pw8Ye5coqBjOjq4Z9DzfVNLQcjH0RgqgJECYWG7z6U5X14CG36n+rr22uLcTCQbQSFKF77LHQYKqTSt3VlE3SRvfApW8J4QV+TSZbpbSjH6cBMeUpGD2572P9UFkxCe2W9A+t+RQPgsy8ZLxuNPNQFJvupCd/OiH5O3GAFmjiTK3490+EqsrWg7TJ1W7ahojgtDlAbZYYAE8G99t/vGMB1BHbYB0UHbqBe8lOcdNoeIkq1gsqTEt46jCP1lIH4dgxu29QwbxE/oMMr+jtrreD1ZSF4R23hArygaaAn4s+JeUOt7Iy+zqUAPBednvfh913Xk14mm44MM1aKS6KEH5sB2o8pyAyb1eTbnqkmdl7UfHrXwzO5PhJT4yTCRAs0lSbkCrTmPidSCtHW12dl4zuKjKFoAnVwfOFTtej/FfXQQpah3T6YEf74AKEACV//WtpQzfS4dmmGMUZqhvNiJ8rJMjMV5t+0LKTyZsNuAQMfzKH35ILGVA74nmyTjk=
-    on_success: change
-    on_failure: always
+install: true # remove default
+before_script:
+  # TODO TBD we are building against main tree? not our modified version of bitcoinj
+  - git clone https://github.com/bitcoinj/bitcoinj.git
+  - cd bitcoinj
+  - mvn -q install
+  - cd ..
+script:
+  - mvn -q clean package
