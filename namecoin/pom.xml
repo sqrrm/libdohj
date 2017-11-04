@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.libdohj</groupId>
     <artifactId>libdohj-namecoin</artifactId>
-    <version>0.14.2</version>
+    <version>0.14.3</version>
     <packaging>jar</packaging>
 
     <licenses>
@@ -86,11 +86,6 @@
             <groupId>com.lambdaworks</groupId>
             <artifactId>scrypt</artifactId>
             <version>1.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bitcoinj</groupId>
-            <artifactId>bitcoinj-core</artifactId>
-            <version>0.14.2</version>
         </dependency>
         <dependency>
             <groupId>org.libdohj</groupId>
