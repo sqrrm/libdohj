@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.libdohj</groupId>
     <artifactId>libdohj-parent</artifactId>
-    <version>0.14.3</version>
+    <version>0.14.5.1</version>
     <packaging>pom</packaging>
 
     <modules>
