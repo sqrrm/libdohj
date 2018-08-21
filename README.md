@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/dogecoin/libdohj.svg?branch=master)](https://travis-ci.org/dogecoin/libdohj)
 
-### Welcome to libdohj
+### Welcome to libdohj 
 
 The libdohj library is a lightweight wrapper library around the bitcoinj Java library,
 enabling support for Dogecoin (pull requests for support for other altcoins would
