@@ -97,7 +97,7 @@
         <dependency>
             <groupId>com.github.bisq-network.bitcoinj</groupId>
             <artifactId>bitcoinj-core</artifactId>
-            <version>75468402</version>
+            <version>ae12d8cd</version>
         </dependency>
     </dependencies>
     <properties>
