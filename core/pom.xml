@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.libdohj</groupId>
     <artifactId>libdohj-core</artifactId>
-    <version>0.14.3</version>
+    <version>0.14.4</version>
     <packaging>jar</packaging>
 
     <licenses>
@@ -97,7 +97,7 @@
         <dependency>
             <groupId>com.github.bisq-network.bitcoinj</groupId>
             <artifactId>bitcoinj-core</artifactId>
-            <version>e7afda55</version>
+            <version>cd30ad5b</version>
         </dependency>
     </dependencies>
     <properties>
