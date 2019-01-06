@@ -99,7 +99,7 @@
             <groupId>com.github.sqrrm.bitcoinj</groupId>
             <artifactId>bitcoinj-core</artifactId>
             <!-- <version>cd30ad5b</version> -->
-            <version>6300648</version>
+            <version>dac1d89</version>
             <!-- <scope>system</scope>
             <systemPath>/home/sqrrm/bisq/bisq/bitcoinj/core/target/bitcoinj-core-0.14.4.11.jar</systemPath> -->
         </dependency>
